@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+    <html lang="id">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Lobi Mobile Legends</title>
+        <style>
+            /* Tema Gelap Khas Game MOBA */
+            body {
+                background-color: #0d1117;
+                color: #e6edf3;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                text-align: center;
+                padding: 40px 20px;
+                margin: 0;
+            }
+            h1 {
+                color: #ffd700; /* Warna Emas */
+                text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+                font-size: 2.5rem;
+                margin-bottom: 5px;
+            }
+            p {
+                color: #8b949e;
+                font-size: 1.1rem;
+                margin-bottom: 40px;
+            }
+            
+            /* Container untuk Kartu Role */
+            .role-container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+                max-width: 800px;
+                margin: 0 auto;
+            }
+            
+            /* Desain Kartu Interaktif */
+            .role-card {
+                background-color: #161b22;
+                border: 2px solid #30363d;
+                border-radius: 15px;
+                padding: 30px 20px;
+                width: 120px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            }
+            
+            .role-card:hover {
+                transform: translateY(-10px) scale(1.05);
+                border-color: #ffd700;
+                background-color: #21262d;
+                box-shadow: 0 10px 20px rgba(255, 215, 0, 0.15);
+            }
+            
+            .emoji {
+                font-size: 50px;
+                margin-bottom: 15px;
+                transition: transform 0.3s;
+            }
+            
+            .role-card:hover .emoji {
+                transform: scale(1.2) rotate(5deg);
+            }
+            
+            .role-name {
+                font-weight: bold;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                color: #c9d1d9;
+            }
+
+            /* Desain Kotak Informasi Panel Game */
+            #info-box {
+                margin: 40px auto 0;
+                padding: 20px;
+                max-width: 600px;
+                background-color: #0d1117;
+                border: 2px dashed #444c56;
+                border-radius: 10px;
+                font-size: 1.2rem;
+                line-height: 1.5;
+                color: #8b949e;
+                min-height: 80px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.3s;
+            }
+            
+            /* Class untuk menyorot teks judul role di dalam info-box */
+            .highlight {
+                color: #ffd700;
+                font-weight: bold;
+                font-size: 1.4rem;
+                display: block;
+                margin-bottom: 10px;
+            }
+        </style>
+    </head>
+    <body>
+
+        <h1>⚔️ Welcome to Mobile Legends ⚔️</h1>
+        <p>Pilih Role (Peran) Hero yang akan kamu mainkan. Klik pada kartu di bawah ini!</p>
+
+        <div class="role-container">
+            <div class="role-card" onclick="gantiInfo('🥷 ASSASSIN', 'Tugas Utama: Jungler.<br>Fokus farming monster hutan dan sergap hero lawan yang darahnya tipis (Mage/Marksman).')">
+                <div class="emoji">🥷</div>
+                <div class="role-name">Assassin</div>
+            </div>
+            
+            <div class="role-card" onclick="gantiInfo('🏹 MARKSMAN', 'Tugas Utama: Gold Laner.<br>Fokus cari uang (gold) di awal game agar damage seranganmu mematikan di akhir game (Late Game).')">
+                <div class="emoji">🏹</div>
+                <div class="role-name">Marksman</div>
+            </div>
+
+            <div class="role-card" onclick="gantiInfo('🔮 MAGE', 'Tugas Utama: Mid Laner.<br>Kuasai area tengah dan bantu rotasi teman ke atas (Top) atau bawah (Bottom) dengan magic damage area.')">
+                <div class="emoji">🔮</div>
+                <div class="role-name">Mage</div>
+            </div>
+
+            <div class="role-card" onclick="gantiInfo('🛡️ TANK', 'Tugas Utama: Roamer.<br>Lindungi teman satu tim, buka map, dan jadilah tameng (inisiator) saat terjadi pertarungan besar (Team Fight).')">
+                <div class="emoji">🛡️</div>
+                <div class="role-name">Tank</div>
+            </div>
+
+            <div class="role-card" onclick="gantiInfo('⚔️ FIGHTER', 'Tugas Utama: EXP Laner.<br>Bertahanlah di jalur EXP untuk cepat naik level dan hancurkan turret lawan.')">
+                <div class="emoji">⚔️</div>
+                <div class="role-name">Fighter</div>
+            </div>
+        </div>
+
+        <div id="info-box">
+            Silakan klik salah satu role di atas untuk melihat detail tugasnya di sini.
+        </div>
+
+        <script>
+            function gantiInfo(namaRole, deskripsiRole) {
+                // Mencari elemen dengan id 'info-box'
+                var kotakInfo = document.getElementById('info-box');
+                
+                // Mengganti warna border agar terlihat berinteraksi
+                kotakInfo.style.borderColor = '#ffd700';
+                kotakInfo.style.color = '#e6edf3';
+                
+                // Mengisi HTML ke dalam kotak
+                kotakInfo.innerHTML = "<span class='highlight'>" + namaRole + "</span>" + deskripsiRole;
+            }
+        </script>
+
+    </body>
+</html>

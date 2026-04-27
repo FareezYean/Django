@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genshin Impact - Elemen Teyvat</title>
+    <style>
+        /* Fantasy/RPG Dark Theme */
+        body {
+            background-color: #1c1c28; /* Deep night sky color */
+            color: #f0f0f0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            padding: 40px 20px;
+            margin: 0;
+            background-image: radial-gradient(circle at top, #2a2a40 0%, #1c1c28 80%);
+        }
+        h1 {
+            color: #e0d0a0; /* Paimon/Star gold */
+            text-shadow: 0 0 15px rgba(224, 208, 160, 0.6);
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+        }
+        p {
+            color: #a0a0b0;
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+        }
+        
+        .element-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .element-card {
+            background-color: rgba(40, 40, 60, 0.8);
+            border: 2px solid #4a4a6a;
+            border-radius: 20px;
+            padding: 25px 15px;
+            width: 110px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+        
+        /* Elemental Glow Effects on Hover */
+        .element-card:hover {
+            transform: translateY(-8px) scale(1.05);
+            background-color: rgba(60, 60, 80, 0.9);
+        }
+        .hover-pyro:hover { border-color: #ff5e5e; box-shadow: 0 10px 20px rgba(255, 94, 94, 0.3); }
+        .hover-hydro:hover { border-color: #5ecfff; box-shadow: 0 10px 20px rgba(94, 207, 255, 0.3); }
+        .hover-anemo:hover { border-color: #5effa8; box-shadow: 0 10px 20px rgba(94, 255, 168, 0.3); }
+        .hover-electro:hover { border-color: #d05eff; box-shadow: 0 10px 20px rgba(208, 94, 255, 0.3); }
+        .hover-cryo:hover { border-color: #a0e8ff; box-shadow: 0 10px 20px rgba(160, 232, 255, 0.3); }
+        .hover-geo:hover { border-color: #ffc25e; box-shadow: 0 10px 20px rgba(255, 194, 94, 0.3); }
+        .hover-dendro:hover { border-color: #a8ff5e; box-shadow: 0 10px 20px rgba(168, 255, 94, 0.3); }
+        
+        .emoji {
+            font-size: 45px;
+            margin-bottom: 12px;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .element-card:hover .emoji {
+            transform: scale(1.25) rotate(10deg);
+        }
+        
+        .element-name {
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #d0d0e0;
+            font-size: 0.9rem;
+        }
+
+        #info-box {
+            margin: 40px auto 0;
+            padding: 25px;
+            max-width: 650px;
+            background-color: rgba(20, 20, 30, 0.8);
+            border: 2px solid #e0d0a0;
+            border-radius: 12px;
+            font-size: 1.15rem;
+            line-height: 1.6;
+            color: #c0c0d0;
+            min-height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            box-shadow: inset 0 0 15px rgba(224, 208, 160, 0.1);
+        }
+        
+        .highlight {
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 1.5rem;
+            display: block;
+            margin-bottom: 12px;
+            text-shadow: 0 0 8px currentColor;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>✨ Teyvat Elements ✨</h1>
+    <p>Pilih elemen (Vision) untuk melihat efek Resonansi dan Reaksinya!</p>
+
+    <div class="element-container">
+        
+        <div class="element-card hover-pyro" onclick="gantiInfo('🔥 PYRO (Api)', '#ff5e5e', 'Memicu reaksi: <b>Melt</b> (dengan Es), <b>Vaporize</b> (dengan Air), dan <b>Overloaded</b> (dengan Listrik). Sangat kuat untuk menyerang!')">
+            <div class="emoji">🔥</div>
+            <div class="element-name">Pyro</div>
+        </div>
+        
+        <div class="element-card hover-hydro" onclick="gantiInfo('💧 HYDRO (Air)', '#5ecfff', 'Memicu reaksi: <b>Freeze</b> (dengan Es), <b>Vaporize</b> (dengan Api), dan <b>Bloom</b> (dengan Dendro). Bagus untuk penyembuhan (Heal).')">
+            <div class="emoji">💧</div>
+            <div class="element-name">Hydro</div>
+        </div>
+
+        <div class="element-card hover-anemo" onclick="gantiInfo('🌪️ ANEMO (Angin)', '#5effa8', 'Memicu reaksi: <b>Swirl</b>. Menggabungkan elemen lain dan menyebarkannya ke banyak musuh sekaligus (Crowd Control).')">
+            <div class="emoji">🌪️</div>
+            <div class="element-name">Anemo</div>
+        </div>
+
+        <div class="element-card hover-electro" onclick="gantiInfo('⚡ ELECTRO (Listrik)', '#d05eff', 'Memicu reaksi: <b>Superconduct</b> (dengan Es), <b>Electro-Charged</b> (dengan Air), dan <b>Aggravate</b> (dengan Dendro).')">
+            <div class="emoji">⚡</div>
+            <div class="element-name">Electro</div>
+        </div>
+
+        <div class="element-card hover-cryo" onclick="gantiInfo('❄️ CRYO (Es)', '#a0e8ff', 'Memicu reaksi: <b>Freeze</b> (dengan Air) untuk membekukan musuh, dan <b>Melt</b> (dengan Api) untuk damage besar.')">
+            <div class="emoji">❄️</div>
+            <div class="element-name">Cryo</div>
+        </div>
+
+        <div class="element-card hover-geo" onclick="gantiInfo('🪨 GEO (Batu)', '#ffc25e', 'Memicu reaksi: <b>Crystallize</b>. Saat mengenai elemen lain, akan menjatuhkan kristal yang memberikan perisai (Shield) pelindung.')">
+            <div class="emoji">🪨</div>
+            <div class="element-name">Geo</div>
+        </div>
+
+        <div class="element-card hover-dendro" onclick="gantiInfo('🌿 DENDRO (Alam)', '#a8ff5e', 'Memicu reaksi: <b>Bloom</b> (dengan Air), <b>Quicken</b> (dengan Listrik), dan <b>Burning</b> (dengan Api). Reaksi berantai yang mematikan!')">
+            <div class="emoji">🌿</div>
+            <div class="element-name">Dendro</div>
+        </div>
+
+    </div>
+
+    <div id="info-box">
+        Klik salah satu ikon elemen di atas untuk mengecek informasi reaksi elemental-nya di sini.
+    </div>
+
+    <script>
+        function gantiInfo(namaElemen, warnaElemen, deskripsiElemen) {
+            var kotakInfo = document.getElementById('info-box');
+            kotakInfo.style.borderColor = warnaElemen;
+            kotakInfo.style.boxShadow = "inset 0 0 20px " + warnaElemen + "40"; // 40 adds transparency
+            
+            kotakInfo.innerHTML = "<span class='highlight' style='color:" + warnaElemen + "'>" + namaElemen + "</span>" + deskripsiElemen;
+        }
+    </script>
+</body>
+</html>

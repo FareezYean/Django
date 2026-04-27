@@ -1,0 +1,101 @@
+{% extends 'base.html'% }
+<!-- panggil template dengan extends -->
+
+{% block title %} Beranda {% endblock %}
+<!-- isi block code berdasarkan namanya -->
+
+<!-- area block  code content utama -->
+{% block content %}
+
+      <section class="hero">
+        <div class="container">
+          <div class="hero-box">
+            <div class="hero-content">
+              <div class="eyebrow">Fantasy Game Landing Page</div>
+              <h1>Masuki dunia game dan pilih petualanganmu</h1>
+              <p>
+                Halaman depan sederhana untuk menampilkan suasana game, beberapa
+                galeri, dan satu akses utama menuju portal permainan.
+              </p>
+              <a href="/game/" class="portal-btn">Masuk ke Portal Game</a>
+            </div>
+            <div class="hero-visual"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="gallery" class="section">
+        <div class="container">
+          <div class="section-head">
+            <h2>Gallery Dunia Game</h2>
+            <p>
+              Beberapa area utama dari dunia permainan yang bisa kamu tampilkan
+              sebagai teaser sebelum user masuk ke halaman game utama.
+            </p>
+          </div>
+
+          <div class="gallery">
+            <article class="card">
+              <div
+                class="card-image"
+                style="
+                  background-image: url(&quot;https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=80&quot;);
+                "
+              ></div>
+              <div class="card-body">
+                <h3>Ancient Arena</h3>
+                <p>
+                  Zona pertempuran untuk duel, boss encounter, dan event
+                  musiman.
+                </p>
+              </div>
+            </article>
+
+            <article class="card">
+              <div
+                class="card-image"
+                style="
+                  background-image: url(&quot;https://images.unsplash.com/photo-1511882150382-421056c89033?auto=format&fit=crop&w=1200&q=80&quot;);
+                "
+              ></div>
+              <div class="card-body">
+                <h3>Mystic Forest</h3>
+                <p>
+                  Hutan berkabut dengan quest rahasia, relic kuno, dan monster
+                  elit.
+                </p>
+              </div>
+            </article>
+
+            <article class="card">
+              <div
+                class="card-image"
+                style="
+                  background-image: url(&quot;https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?auto=format&fit=crop&w=1200&q=80&quot;);
+                "
+              ></div>
+              <div class="card-body">
+                <h3>Sky Fortress</h3>
+                <p>
+                  Benteng terapung tempat pemain memulai raid dan ekspedisi
+                  besar.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="portal" class="portal-section">
+        <div class="container">
+          <div class="portal-box">
+            <h2>Portal Game</h2>
+            <p>
+              Klik menu besar di bawah ini untuk masuk ke halaman permainan
+              utama.
+            </p>
+            <a href="/game/" class="portal-link-big">ENTER PORTAL GAME</a>
+          </div>
+        </div>
+      </section>
+{% endblock %}
