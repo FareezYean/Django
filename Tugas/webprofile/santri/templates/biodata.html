@@ -1,0 +1,80 @@
+{% extends 'base.html' %} {% load static %} {% block title %}Biodata{% endblock%} 
+{% block page_title %}HSI Boarding School{% endblock %} {% block content %}
+<section>
+  <h1>Biodata Santri</h1>
+  <p class="center">Kelas 10-C - Jurusan : IT - Asrama Ibnu Taimiyyah</p>
+
+  <hr />
+
+  {% load static %}
+
+  <div class="Pengantar">
+    <h2><span>| </span>Biodata Singkat</h2>
+    <img
+      width="250"
+      src="{% static 'images/gw.jpg' %}"
+      alt="Photo Of Ananda Rafif Abdurrahman"
+      class="avatar"
+    />
+
+    <p>
+      Nama saya adalah Ananda Rafif Abdurrahman, biasa dipanggil Rafif, saya
+      lahir di Jakarta pada tanggal 1 Februari 2010, dan saya tinggal di daerah
+      Bogor, tepatnya di Cibinong.
+    </p>
+  </div>
+
+  <br />
+
+  <div class="Avatar-favorit">
+    <h2><span>| </span>Hobi</h2>
+    <ul>
+      <li>Programming</li>
+      <li>Photografer</li>
+      <li>Design</li>
+      <li>Gaming</li>
+    </ul>
+  </div>
+
+  <br />
+
+  <div class="Avatar-favorit">
+    <h2><span>| </span>Cita-cita</h2>
+    <ol>
+      <li>Ingin menjadi seorang Programmer</li>
+      <li>Ingin menjadi seorang Gamer Professional</li>
+      <li>Ingin menjadi orang yang berguna untuk DUNIA</li>
+    </ol>
+  </div>
+
+  <br />
+
+  <div class="Avatar-favorit">
+    <h2><span>| </span>Quote Singkat</h2>
+    <p>Quote dari <b>ARISTOTELES</b></p>
+    <Quote> “Kita adalah apa yang kita kerjakan berulang kali.”</Quote>
+    <hr />
+    <p>Quote dari <b>@fareezyean</b></p>
+    <quote>
+      <i>Mencintai</i> yang <b>Nyata</b> terkadang lebih menyakitkan daripada
+      <i>Mencintai</i> yang <b>tidak nyata</b></quote
+    >
+  </div>
+
+  <br />
+
+  <div class="Avatar-favorit">
+    <h2><span>| </span>Contact Me</h2>
+    <p>
+      Whatsapp : +62 895-2661-1395
+      <br />
+      Email : fareezyean@gmail.com
+      <br />
+      Instagram :
+      <a href="https://www.instagram.com/fareezyean/?__pwa=1#" target="_blank"
+        >@fareezyean</a
+      >
+    </p>
+  </div>
+</section>
+{% endblock %}

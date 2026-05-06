@@ -1,0 +1,50 @@
+{% extends 'base.html' %} {% load static %} {% block title %}Home{% endblock %}
+{% block page_title %}HSI Boarding School{% endblock %} {% block content %}
+<section>
+  <img
+    src="{% static 'images/hsi.webp' %}"
+    alt="HSI LOGO"
+    height="80px"
+    class="photo"
+  />
+  <h1>HSI Boarding School Purworejo</h1>
+  <p class="center">Web Profile - Class X</p>
+
+  <hr />
+
+  {% load static %}
+
+  <div class="Pengantar">
+    <h2><span>| </span>Pengantar</h2>
+    <p>
+      Selamat Datang di Website Biodata Diri singkat Ananda Rafif Abdurrahman,
+      <br />
+      Menjelaskan secara singkat mengenai diri saya sendiri, Hobi, Cita-cita,
+      dan Quote singkat dari seorang filsuf terkenal yaitu Aristoteles.
+      <br />
+      dan juga menampilkan beberapa foto, contoh jadwal kegiatan belajar, dan
+      ada Feedback form yang bisa diisi oleh pengunjung website ini.
+    </p>
+  </div>
+
+  <br />
+
+  <div class="Avatar-favorit">
+    <h2><span>| </span>Avatar Favorite</h2>
+    <img
+      width="250"
+      src="{% static 'images/Anya Forger.jpeg' %}"
+      alt="Photo Of Anya Forger"
+      class="avatar"
+    />
+
+    <hr />
+    <p>
+      <b>Gambar diatas</b> adalah gambar <s>waifu</s> Karakter kesukaan saya
+      yaitu <i>Anya Forger</i>, dari anime yang berjudul <u>Spy X Family</u>,
+    </p>
+  </div>
+
+  <br />
+</section>
+{% endblock %}

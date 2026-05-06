@@ -1,0 +1,67 @@
+{% extends 'base.html'% }
+<!-- panggil template dengan extends -->
+
+{% block title %} Beranda {% endblock %}
+<!-- isi block code berdasarkan namanya -->
+
+<!-- area block  code content utama -->
+{% block content %}
+<body>
+
+    <h1>✨ Teyvat Elements ✨</h1>
+    <p>Pilih elemen (Vision) untuk melihat efek Resonansi dan Reaksinya!</p>
+
+    <div class="element-container">
+        
+        <div class="element-card hover-pyro" onclick="gantiInfo('🔥 PYRO (Api)', '#ff5e5e', 'Memicu reaksi: <b>Melt</b> (dengan Es), <b>Vaporize</b> (dengan Air), dan <b>Overloaded</b> (dengan Listrik). Sangat kuat untuk menyerang!')">
+            <div class="emoji">🔥</div>
+            <div class="element-name">Pyro</div>
+        </div>
+        
+        <div class="element-card hover-hydro" onclick="gantiInfo('💧 HYDRO (Air)', '#5ecfff', 'Memicu reaksi: <b>Freeze</b> (dengan Es), <b>Vaporize</b> (dengan Api), dan <b>Bloom</b> (dengan Dendro). Bagus untuk penyembuhan (Heal).')">
+            <div class="emoji">💧</div>
+            <div class="element-name">Hydro</div>
+        </div>
+
+        <div class="element-card hover-anemo" onclick="gantiInfo('🌪️ ANEMO (Angin)', '#5effa8', 'Memicu reaksi: <b>Swirl</b>. Menggabungkan elemen lain dan menyebarkannya ke banyak musuh sekaligus (Crowd Control).')">
+            <div class="emoji">🌪️</div>
+            <div class="element-name">Anemo</div>
+        </div>
+
+        <div class="element-card hover-electro" onclick="gantiInfo('⚡ ELECTRO (Listrik)', '#d05eff', 'Memicu reaksi: <b>Superconduct</b> (dengan Es), <b>Electro-Charged</b> (dengan Air), dan <b>Aggravate</b> (dengan Dendro).')">
+            <div class="emoji">⚡</div>
+            <div class="element-name">Electro</div>
+        </div>
+
+        <div class="element-card hover-cryo" onclick="gantiInfo('❄️ CRYO (Es)', '#a0e8ff', 'Memicu reaksi: <b>Freeze</b> (dengan Air) untuk membekukan musuh, dan <b>Melt</b> (dengan Api) untuk damage besar.')">
+            <div class="emoji">❄️</div>
+            <div class="element-name">Cryo</div>
+        </div>
+
+        <div class="element-card hover-geo" onclick="gantiInfo('🪨 GEO (Batu)', '#ffc25e', 'Memicu reaksi: <b>Crystallize</b>. Saat mengenai elemen lain, akan menjatuhkan kristal yang memberikan perisai (Shield) pelindung.')">
+            <div class="emoji">🪨</div>
+            <div class="element-name">Geo</div>
+        </div>
+
+        <div class="element-card hover-dendro" onclick="gantiInfo('🌿 DENDRO (Alam)', '#a8ff5e', 'Memicu reaksi: <b>Bloom</b> (dengan Air), <b>Quicken</b> (dengan Listrik), dan <b>Burning</b> (dengan Api). Reaksi berantai yang mematikan!')">
+            <div class="emoji">🌿</div>
+            <div class="element-name">Dendro</div>
+        </div>
+
+    </div>
+
+    <div id="info-box">
+        Klik salah satu ikon elemen di atas untuk mengecek informasi reaksi elemental-nya di sini.
+    </div>
+
+    <script>
+        function gantiInfo(namaElemen, warnaElemen, deskripsiElemen) {
+            var kotakInfo = document.getElementById('info-box');
+            kotakInfo.style.borderColor = warnaElemen;
+            kotakInfo.style.boxShadow = "inset 0 0 20px " + warnaElemen + "40"; // 40 adds transparency
+            
+            kotakInfo.innerHTML = "<span class='highlight' style='color:" + warnaElemen + "'>" + namaElemen + "</span>" + deskripsiElemen;
+        }
+    </script>
+</body>
+{% endblock %}

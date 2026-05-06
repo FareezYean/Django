@@ -1,0 +1,60 @@
+{% extends 'base.html' %} {% load static %} {% block title %}Jadwal{% endblock%} 
+{% block page_title %}HSI Boarding School{% endblock %} {% block content %}
+<section>
+  <h1>Jadwal Harian Santri</h1>
+  <p class="center">Pekan ini - Materi HTML & CSS</p>
+
+  <hr />
+
+  {% load static %}
+
+  <div class="card">
+    <h2><span>| </span>Jadwal Kegiatan Belajar</h2>
+    <table>
+      <thead>
+        <tr>
+          <th colspan="2">Waktu</th>
+          <th rowspan="2">Hari</th>
+          <th rowspan="2">Kegiatan</th>
+        </tr>
+        <tr>
+          <th>Mulai</th>
+          <th>Selesai</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>08:00</td>
+          <td>10:00</td>
+          <td>Senin</td>
+          <td>Pelajaran Web Dasar (Teori HTML)</td>
+        </tr>
+        <tr>
+          <td>10:00</td>
+          <td>10:30</td>
+          <td></td>
+          <td>ISTIRAHAT (Snack & Shalat Dhuha)</td>
+        </tr>
+        <tr>
+          <td>10:30</td>
+          <td>12:00</td>
+          <td>Senin</td>
+          <td>Latihan Praktikum HTML Table</td>
+        </tr>
+        <tr>
+          <td>14:00</td>
+          <td>16:00</td>
+          <td>Selasa</td>
+          <td>Pelajaran Web Dasar (Teori CSS & Box Model)</td>
+        </tr>
+        <tr>
+          <td>16:00</td>
+          <td>16:45</td>
+          <td>Selasa</td>
+          <td>Olahraga (Renang)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+{% endblock %}

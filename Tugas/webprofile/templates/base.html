@@ -1,0 +1,28 @@
+{% load static %}
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Website Santri{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+  </head>
+
+  <body>
+    <header>
+      <hr />
+
+      <nav class="navbar">
+        <a href="{% url 'home' %}" class="active">Home</a>
+        <a href="{% url 'santri_home' %}" class="active">Beranda</a>
+        <a href="{% url 'biodata' %}" class="active">Biodata</a>
+        <a href="{% url 'jadwal' %}" class="active">Jadwal</a>
+        <a href="{% url 'galeri' %}" class="active">Galeri</a>
+        <a href="{% url 'feedback' %}" class="active">Feedback</a>
+      </nav>
+
+      <hr />
+    </header>
+
+    <main>{% block content %} {% endblock %}</main>
+  </body>
+</html>

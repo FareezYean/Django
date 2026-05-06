@@ -1,0 +1,62 @@
+{% extends 'base.html' %} {% load static %} {% block title %}Feedback{% endblock%} 
+{% block page_title %}HSI Boarding School{% endblock %} {% block content %}
+<section>
+  <h1>Feedback Form</h1>
+  <p class="center">Kritik, Saran dan Masukan</p>
+
+  <hr />
+
+  {% load static %}
+
+  <div class="Pengantar">
+    <h2><span>| </span>Formulir kontak & saran</h2>
+    <p>
+      Beri masukkan terbaik anda untuk web ini kedepannya!!!. [Semua bersifat
+      wajib kecuali NAMA]
+    </p>
+
+    <form action="https://httpbin.org/post" method="post">
+      <label> Nama anda [Opsional] :</label>
+      <input type="text" placeholder="Tulis nama anda" />
+
+      <label> Email anda [Wajib] :</label>
+      <input type="email" placeholder="Tulis email anda" required />
+
+      <label>Rating Kepuasan Website 1-10 :</label>
+      <input type="number" min="1" max="10" placeholder="1-10" required />
+
+      <label>Rekomendasi Website Ini :</label>
+      <div class="radio-group">
+        <label><input type="radio" name="req" value="ya" /> Ya, Sangat</label>
+        <label
+          ><input type="radio" name="req" value="mungkin" /> Mungkin Saja</label
+        >
+        <label><input type="radio" name="req" value="tidak" /> Tidak</label>
+      </div>
+
+      <label>Topik yang paling menarik :</label>
+      <div class="checkbox-group">
+        <label><input type="checkbox" /> Biodata</label>
+        <label><input type="checkbox" /> Jadwal</label>
+        <label><input type="checkbox" /> Galeri</label>
+      </div>
+
+      <label>Saran Pengembangan di Bidang :</label>
+      <select>
+        <option>-- Pilih Bidang --</option>
+        <option>Desain</option>
+        <option>PeMerograman</option>
+        <option>Photografer</option>
+      </select>
+
+      <label>Pesan/Saran Lengkap:</label>
+      <textarea rows="5" placeholder="Tulis pesan Anda di sini..."></textarea>
+
+      <div class="button-group">
+        <button type="reset" class="reset">Atur Ulang</button>
+        <button type="submit" class="submit">Kirim Feedback</button>
+      </div>
+    </form>
+  </div>
+</section>
+{% endblock %}

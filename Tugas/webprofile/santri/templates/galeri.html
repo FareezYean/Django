@@ -1,0 +1,76 @@
+{% extends 'base.html' %} {% load static %} {% block title %}Galeri{% endblock%}
+{% block page_title %}HSI Boarding School{% endblock %} {% block content %}
+<section>
+  <h1>Galeri saya</h1>
+  <p class="center">Web Profile Pribadi</p>
+
+  <hr />
+
+  {% load static %}
+
+  <div class="body_gallery">
+    <h2><span>| </span>Character Anime</h2>
+
+    <div class="gallery">
+      <div class="item">
+        <img
+          src="{% static 'images/Kiyotaka Ayanokōji.jpeg' %}"
+          alt="Kiyotaka Ayanokojie"
+        />
+        <p>Kiyotaka Ayanokojie dari Anime "Classroom Of Elite"</p>
+      </div>
+
+      <div class="item">
+        <img src="{% static 'images/Jotaro Icon.jpeg' %}" alt=" Kujo Jotaro" />
+        <p>Kujo Jotaro dari Anime "JoJo's Bizarre Adventure"</p>
+      </div>
+
+      <div class="item">
+        <img src="{% static 'images/Light Yagami.jpeg' %}" alt="Light Yagami" />
+        <p>Light Yagami dari Anime "Death Note"</p>
+      </div>
+
+      <div class="item">
+        <img src="{% static 'images/Garou.jpeg' %}" alt="Garou" />
+        <p>Garou dari Anime "One Punch Man"</p>
+      </div>
+
+      <div class="item">
+        <img
+          src="{% static 'images/Johan Liebert.jpeg' %}"
+          alt="Johan Liebert"
+        />
+        <p>Johan Liebert dari Anime "Monster"</p>
+      </div>
+    </div>
+  </div>
+
+  <br />
+
+  <div class="body_gallery">
+    <h2><span>| </span>Mini Zoo</h2>
+
+    <div class="Gallery">
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/cLV9jSu0fHw?si=EwWaZntBVC_-P3bg"
+        title="YouTube video player"
+        frameborder="0"
+        allow="
+          accelerometer;
+          autoplay;
+          clipboard-write;
+          encrypted-media;
+          gyroscope;
+          picture-in-picture;
+          web-share;
+        "
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      >
+      </iframe>
+    </div>
+  </div>
+</section>
+{% endblock %}

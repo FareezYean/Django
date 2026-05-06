@@ -25,3 +25,10 @@ print("Hello, World!")
 
 # buat app blog
 # >>> python manage.py startapp blog
+
+# =============================================
+
+# 3 STEP Git: 
+# git add (nama file)
+# git commit -m "pesan commit"
+# git push
