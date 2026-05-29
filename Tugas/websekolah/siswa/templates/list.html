@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %} Daftar Siswa {% endblock %}
+
+{% block content %} 
+    <div class="flex justify-between items-center mb-4">
+        <div>
+            <h1 class="text-3xl font-bold text-slate-900">
+                DAFTAR SISWA
+            </h1>
+            <p class="text-gray-600">Halaman daftar siswa kelas X - HSI Boarding School Purworejo</p>
+        </div>
+        <a href="{% url 'siswa_create' %}"
+            class="inline-flex justify-center px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700">
+            + Tambah Siswa
+        </a>
+    </div>
+    <h3>Semua siswa dari HSI cabang: <u>{{ keyword }}</u></h3>
+
+    <!-- data table ntar disini -->
+    <!--<p>ISI DATA: {{ data}}.</p> -->
+    <table class="w-full border-collapse text-sm ">
+        <thead>
+            <tr class="bg-slate-100 text-left text-slate-700">
+                <th class="p-3 border border-slate-200">ID</th>
+                <th class="p-3 border border-slate-200">Nama</th>
+                <th class="p-3 border border-slate-200">Umur</th>
+                <th class="p-3 border border-slate-200">Tgl Lahir</th>
+                <th class="p-3 border border-slate-200">Status Hadir</th>
+                <th class="p-3 border border-slate-200">Nilai Akhir</th>
+                <th class="p-3 border border-slate-200">Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for siswa in data %}
+            <tr>
+                <td class="p-3 border border-slate-200">{{ siswa.id }}</td>
+                <td class="p-3 border border-slate-200">{{ siswa.nama }}</td>
+                <td class="p-3 border border-slate-200">{{ siswa.umur }}</td>
+                <td class="p-3 border border-slate-200">{{ siswa.tgl_lahir }}</td>
+                <td class="p-3 border border-slate-200">{{ siswa.status_hadir }}</td>
+                <td class="p-3 border border-slate-200">{{ siswa.nilai_akhir }}</td>
+                <td class="p-3 border border-slate-200">
+                    <a href="{% url 'siswa_detail' siswa.id %}" class="text-blue-500 hover:text-blue-700">Detail</a>
+                </td>
+            </tr>
+            {% endfor %}
+            <!-- ntar disini isi data dari db nya -->
+        </tbody>
+    </table>
+{% endblock %}
