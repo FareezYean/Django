@@ -15,7 +15,6 @@
             + Tambah Siswa
         </a>
     </div>
-    <h3>Semua siswa dari HSI cabang: <u>{{ keyword }}</u></h3>
 
     <!-- data table ntar disini -->
     <!--<p>ISI DATA: {{ data}}.</p> -->
@@ -40,8 +39,19 @@
                 <td class="p-3 border border-slate-200">{{ siswa.tgl_lahir }}</td>
                 <td class="p-3 border border-slate-200">{{ siswa.status_hadir }}</td>
                 <td class="p-3 border border-slate-200">{{ siswa.nilai_akhir }}</td>
-                <td class="p-3 border border-slate-200">
-                    <a href="{% url 'siswa_detail' siswa.id %}" class="text-blue-500 hover:text-blue-700">Detail</a>
+                <td class="p-3 border border-slate-200 space-x-2 flex">
+                    <a href="{% url 'siswa_detail' siswa.id %}" 
+                        class="px-3 py-1 border border-blue-500 text-blue-500 rounded hover:bg-blue-500 hover:text-white transition-colors text-sm font-medium">
+                        Detail
+                    </a>
+                    <a href="{% url 'siswa_update' siswa.id %}" 
+                        class="px-3 py-1 border border-green-500 text-green-500 rounded hover:bg-green-500 hover:text-white transition-colors text-sm font-medium">
+                        Edit
+                    </a>
+                    <a href="{% url 'siswa_delete' siswa.id %}" 
+                        class="px-3 py-1 border border-red-500 text-red-500 rounded hover:bg-red-500 hover:text-white transition-colors text-sm font-medium">
+                        Delete
+                    </a>
                 </td>
             </tr>
             {% endfor %}

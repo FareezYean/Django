@@ -81,29 +81,84 @@ def siswa_create(request):
 
 
 def siswa_update(request, id):
-    html = f"""
-    <html>
-        <head><title>Edit Siswa</title></head>
-        <body>
-            <h1>Edit Siswa</h1>
-            <p>Edit data siswa dengan ID: {id}</p>
-        </body>
-    </html>
-    """
-    return HttpResponse(html)
+    # Ambil data siswa berdasarkan ID (SELECT)
+    with connection.cursor() as cursor:
+        cursor.execute(
+            """
+            SELECT * FROM siswa
+            WHERE id = %s
+            """,
+            [id]
+        )
+        siswa = dictfetchone(cursor)
+    
+    # Jika siswa tidak ditemukan, redirect ke list
+    if not siswa:
+        return redirect('siswa_list')
+    
+    # Proses form jika ada submit POST
+    if request.method == 'POST':
+        nama = request.POST.get('nama', '').strip()
+        umur = request.POST.get('umur', '').strip()
+        tgl_lahir = request.POST.get('tgl_lahir', '').strip()
+        status_hadir = request.POST.get('status_hadir', '').strip()
+        nilai_akhir = request.POST.get('nilai_akhir', '').strip()
+        
+        # Eksekusi query UPDATE ke tabel siswa berdasarkan ID
+        with connection.cursor() as cursor:
+            cursor.execute(
+                """
+                UPDATE siswa
+                SET nama = %s, umur = %s, tgl_lahir = %s, status_hadir = %s, nilai_akhir = %s
+                WHERE id = %s
+                """,
+                [nama, umur, tgl_lahir, status_hadir, nilai_akhir, id]
+            )
+        
+        # Redirect ke detail siswa setelah berhasil update
+        return redirect('siswa_detail', id=id)
+    
+    # Tampilkan form dengan data siswa yang sudah terisi (GET)
+    return render(request, 'siswa_update.html', {
+        'siswa': siswa,
+    })
 
 
 def siswa_delete(request, id):
-    html = f"""
-    <html>
-        <head><title>Hapus Siswa</title></head>
-        <body>
-            <h1>Hapus Siswa</h1>
-            <p>Yakin ingin menghapus siswa dengan ID: {id}?</p>
-        </body>
-    </html>
-    """
-    return HttpResponse(html)
+    # Ambil data siswa berdasarkan ID (SELECT)
+    with connection.cursor() as cursor:
+        cursor.execute(
+            """
+            SELECT * FROM siswa
+            WHERE id = %s
+            """,
+            [id]
+        )
+        siswa = dictfetchone(cursor)
+    
+    # Jika siswa tidak ditemukan, redirect ke list
+    if not siswa:
+        return redirect('siswa_list')
+    
+    # Proses delete jika ada submit POST
+    if request.method == 'POST':
+        # Eksekusi query DELETE dari tabel siswa berdasarkan ID
+        with connection.cursor() as cursor:
+            cursor.execute(
+                """
+                DELETE FROM siswa
+                WHERE id = %s
+                """,
+                [id]
+            )
+        
+        # Redirect ke list siswa setelah berhasil delete
+        return redirect('siswa_list')
+    
+    # Tampilkan halaman konfirmasi delete (GET)
+    return render(request, 'siswa_delete.html', {
+        'siswa': siswa,
+    })
 
 
 # Create your views here.
