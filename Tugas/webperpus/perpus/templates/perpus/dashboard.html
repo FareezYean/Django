@@ -1,0 +1,127 @@
+{% extends 'perpus/base.html' %}
+
+{% block title %}Dashboard - SIPUSTAKA{% endblock %}
+
+{% block content %}
+<div class="space-y-6">
+    <div>
+        <p class="text-slate-500">Selamat datang di sistem perpustakaan digital.</p>
+        <h3 class="text-2xl font-semibold text-slate-900">Dashboard</h3>
+    </div>
+
+    <!-- Statistik Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
+        <!-- Card 1: Total Judul Buku -->
+        <div class="bg-white rounded-3xl p-5 shadow-md border border-slate-100 hover:shadow-lg transition">
+            <div class="flex justify-between items-start">
+                <div>
+                    <p class="text-slate-500 text-sm">Total Judul</p>
+                    <p class="text-3xl font-bold text-slate-800 mt-1">{{ stats.total_judul|default:"0" }}</p>
+                </div>
+                <div class="w-10 h-10 bg-brand-100 rounded-2xl flex items-center justify-center">
+                    <span class="material-icons-outlined text-brand-600">collections_bookmark</span>
+                </div>
+            </div>
+            <p class="text-xs text-slate-400 mt-3">Jumlah koleksi judul buku</p>
+        </div>
+
+        <!-- Card 2: Total Siswa -->
+        <div class="bg-white rounded-3xl p-5 shadow-md border border-slate-100 hover:shadow-lg transition">
+            <div class="flex justify-between items-start">
+                <div>
+                    <p class="text-slate-500 text-sm">Total Siswa</p>
+                    <p class="text-3xl font-bold text-slate-800 mt-1">{{ stats.total_siswa|default:"0" }}</p>
+                </div>
+                <div class="w-10 h-10 bg-purple-100 rounded-2xl flex items-center justify-center">
+                    <span class="material-icons-outlined text-purple-600">group</span>
+                </div>
+            </div>
+            <p class="text-xs text-slate-400 mt-3">Siswa terdaftar aktif</p>
+        </div>
+
+        <!-- Card 3: Sedang Dipinjam -->
+        <div class="bg-white rounded-3xl p-5 shadow-md border border-slate-100 hover:shadow-lg transition">
+            <div class="flex justify-between items-start">
+                <div>
+                    <p class="text-slate-500 text-sm">Sedang Dipinjam</p>
+                    <p class="text-3xl font-bold text-slate-800 mt-1">{{ stats.sedang_dipinjam|default:"0" }}</p>
+                </div>
+                <div class="w-10 h-10 bg-amber-100 rounded-2xl flex items-center justify-center">
+                    <span class="material-icons-outlined text-amber-600">sync</span>
+                </div>
+            </div>
+            <p class="text-xs text-slate-400 mt-3">Transaksi peminjaman aktif</p>
+        </div>
+
+        <!-- Card 4: Sudah Dikembalikan -->
+        <div class="bg-white rounded-3xl p-5 shadow-md border border-slate-100 hover:shadow-lg transition">
+            <div class="flex justify-between items-start">
+                <div>
+                    <p class="text-slate-500 text-sm">Sudah Dikembalikan</p>
+                    <p class="text-3xl font-bold text-slate-800 mt-1">{{ stats.sudah_dikembalikan|default:"0" }}</p>
+                </div>
+                <div class="w-10 h-10 bg-emerald-100 rounded-2xl flex items-center justify-center">
+                    <span class="material-icons-outlined text-emerald-600">check_circle</span>
+                </div>
+            </div>
+            <p class="text-xs text-slate-400 mt-3">Transaksi yang sudah selesai</p>
+        </div>
+
+        <!-- Card 5: Terlambat -->
+        <div class="bg-white rounded-3xl p-5 shadow-md border border-slate-100 hover:shadow-lg transition">
+            <div class="flex justify-between items-start">
+                <div>
+                    <p class="text-slate-500 text-sm">Terlambat</p>
+                    <p class="text-3xl font-bold text-slate-800 mt-1">{{ stats.terlambat|default:"0" }}</p>
+                </div>
+                <div class="w-10 h-10 bg-rose-100 rounded-2xl flex items-center justify-center">
+                    <span class="material-icons-outlined text-rose-600">warning</span>
+                </div>
+            </div>
+            <p class="text-xs text-slate-400 mt-3">Melewati jatuh tempo</p>
+        </div>
+    </div>
+
+    <!-- Info Stok Tambahan (opsional) -->
+    <div class="bg-white rounded-3xl p-4 shadow-md border border-slate-100">
+        <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <span class="material-icons-outlined text-slate-400">inventory</span>
+                <span class="text-sm text-slate-600">Total Stok Buku (Keseluruhan Unit)</span>
+            </div>
+            <span class="text-xl font-semibold text-slate-800">{{ stats.total_stok|default:"0" }}</span>
+        </div>
+    </div>
+
+    <!-- Shortcut Buttons -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <a href="{% url 'buku_create' %}" class="block bg-gradient-to-r from-brand-500 to-brand-600 rounded-3xl p-5 text-white shadow-md hover:shadow-lg transition">
+            <div class="flex items-center gap-3">
+                <span class="material-icons-outlined text-2xl">add</span>
+                <div>
+                    <p class="font-semibold">Tambah Buku Baru</p>
+                    <p class="text-xs text-brand-100">Tambahkan koleksi buku</p>
+                </div>
+            </div>
+        </a>
+        <a href="{% url 'user_create' %}" class="block bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-3xl p-5 text-white shadow-md hover:shadow-lg transition">
+            <div class="flex items-center gap-3">
+                <span class="material-icons-outlined text-2xl">person_add</span>
+                <div>
+                    <p class="font-semibold">Tambah User Baru</p>
+                    <p class="text-xs text-emerald-100">Daftarkan siswa baru</p>
+                </div>
+            </div>
+        </a>
+        <a href="{% url 'peminjaman_create' %}" class="block bg-gradient-to-r from-amber-500 to-amber-600 rounded-3xl p-5 text-white shadow-md hover:shadow-lg transition">
+            <div class="flex items-center gap-3">
+                <span class="material-icons-outlined text-2xl">menu_book</span>
+                <div>
+                    <p class="font-semibold">Peminjaman Buku</p>
+                    <p class="text-xs text-amber-100">Lakukan transaksi peminjaman</p>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+{% endblock %}
